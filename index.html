@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhay Tirtha - Divine Temple Project | ISKCON Newtown Kolkata</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --deep-saffron: #FF7722;
+            --sacred-red: #8B0000;
+            --temple-blue: #1e3a8a;
+            --pure-white: #FFFFFF;
+            --soft-cream: #FFF8DC;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--temple-blue) 0%, var(--sacred-red) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="temple" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23temple)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--soft-cream);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .divine-card {
+            background: linear-gradient(145deg, var(--pure-white) 0%, var(--soft-cream) 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 2px solid var(--primary-gold);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .divine-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212,175,55,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .divine-card:hover::before {
+            left: 100%;
+        }
+        
+        .divine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+        
+        .membership-tier {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .tier-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--sacred-red);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .tier-amount {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--temple-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .tier-benefit {
+            color: var(--deep-saffron);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .donation-btn {
+            background: linear-gradient(45deg, var(--primary-gold), var(--deep-saffron));
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212,175,55,0.3);
+        }
+        
+        .donation-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212,175,55,0.4);
+            color: white;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--sacred-red);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--primary-gold);
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, var(--soft-cream) 0%, var(--pure-white) 100%);
+            padding: 4rem 0;
+        }
+        
+        .contact-card {
+            background: var(--pure-white);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .bank-details {
+            background: linear-gradient(145deg, var(--temple-blue), var(--sacred-red));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .bank-details h4 {
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+        
+        .upi-section {
+            background: var(--primary-gold);
+            color: var(--temple-blue);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .floating-om {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(212,175,55,0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-om:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-om:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-om:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-elements">
+            <div class="floating-om">🕉️</div>
+            <div class="floating-om">🕉️</div>
+            <div class="floating-om">🕉️</div>
+        </div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Abhay Tirtha</h1>
+                    <p class="hero-subtitle">A Divine Temple Project</p>
+                    <p class="lead text-white mb-4">ISKCON Newtown, Kolkata</p>
+                    <p class="text-light mb-4">Contribute to the Divine Cause - Let's Come Together to Build Abhay Tirtha</p>
+                    <div class="hero-description text-light">
+                        <p class="mb-3">Join us in creating a sacred space where devotees can connect with the divine, experience spiritual bliss, and find eternal peace. Abhay Tirtha will stand as a beacon of Krishna consciousness, spreading love, devotion, and spiritual wisdom throughout the region.</p>
+                        <button class="btn donation-btn btn-lg">🙏 Start Your Divine Journey</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1582632209439-ba48c83d4e70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Krishna Temple" class="img-fluid rounded-3 shadow-lg" style="border: 3px solid var(--primary-gold);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center mb-5">
+                <div class="col-lg-6 fade-in">
+                    <img src="https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Temple Construction" class="img-fluid rounded-3 shadow">
+                </div>
+                <div class="col-lg-6 fade-in">
+                    <h2 class="section-title text-start">About Abhay Tirtha</h2>
+                    <p class="lead text-muted">A Sacred Vision Coming to Life</p>
+                    <p>Abhay Tirtha represents more than just a temple - it embodies the eternal teachings of His Divine Grace A.C. Bhaktivedanta Swami Prabhupada and the timeless wisdom of Krishna consciousness. Located in the vibrant city of Newtown, Kolkata, this divine project will serve as a spiritual sanctuary for thousands of devotees.</p>
+                    <p>The temple will feature magnificent architecture inspired by traditional Vedic design, spacious prayer halls for congregational worship, educational facilities for spiritual learning, and serene gardens for meditation and reflection. Every brick laid with devotion will contribute to creating a sacred space where souls can reconnect with their divine nature.</p>
+                    <div class="mt-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-om text-warning fs-4 me-3"></i>
+                                    <span>Daily Prayers & Aarti</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-book-open text-warning fs-4 me-3"></i>
+                                    <span>Spiritual Education</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-hands-helping text-warning fs-4 me-3"></i>
+                                    <span>Community Service</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-leaf text-warning fs-4 me-3"></i>
+                                    <span>Organic Gardens</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pioneer Members Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title">Pioneer Members</h2>
+                    <p class="lead text-muted mb-4">Become a Founding Pillar of Abhay Tirtha</p>
+                    <p>Pioneer members are the visionary souls who will be eternally remembered as the foundation builders of this sacred temple. Your generous contribution will ensure that Abhay Tirtha stands as a monument to divine love and spiritual awakening for generations to come.</p>
+                    <div class="mt-4 mb-4">
+                        <img src="https://images.unsplash.com/photo-1544733151-6e4ae999de2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Temple Altar" class="img-fluid rounded-3 shadow" style="max-height: 300px; object-fit: cover; width: 100%;">
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                        <i class="fas fa-star me-2"></i>
+                        <strong>Special Recognition:</strong> A brick with your name will be placed in temple's Altar - the most sacred space of the temple.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Govardhan Sevak</h3>
+                            <div class="tier-amount">₹5 Crore</div>
+                            <p class="tier-benefit">Highest tier of divine service</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Vrindavan Sevak</h3>
+                            <div class="tier-amount">₹3 Crore</div>
+                            <p class="tier-benefit">Sacred service to the divine</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Gokul Sevak</h3>
+                            <div class="tier-amount">₹1 Crore</div>
+                            <p class="tier-benefit">Divine contribution to temple</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Mathura Sevak</h3>
+                            <div class="tier-amount">₹51 Lakh</div>
+                            <p class="tier-benefit">Blessed service offering</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Dwarka Sevak</h3>
+                            <div class="tier-amount">₹21 Lakh</div>
+                            <p class="tier-benefit">Noble contribution to temple</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Pioneer Vaikuntha Sevak</h3>
+                            <div class="tier-amount">₹11 Lakh</div>
+                            <p class="tier-benefit">Divine temple support</p>
+                            <button class="btn donation-btn">Become Pioneer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divine Members Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title">Divine Members</h2>
+                    <p class="lead text-muted mb-4">Join the Divine Instruments of Lord Krishna</p>
+                    <p>Divine members represent the sacred instruments through which Lord Krishna performs His divine pastimes. Each tier is named after the divine weapons and symbols of Lord Vishnu, representing strength, purity, protection, and victory in spiritual life.</p>
+                    <div class="row mt-4 mb-4">
+                        <div class="col-md-6">
+                            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Temple Hall" class="img-fluid rounded-3 shadow mb-3" style="height: 250px; object-fit: cover; width: 100%;">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column h-100 justify-content-center">
+                                <div class="mb-3">
+                                    <h5><i class="fas fa-lotus me-2 text-warning"></i>Padma (Lotus)</h5>
+                                    <p class="small">Symbol of purity and spiritual awakening</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5><i class="fas fa-hammer me-2 text-warning"></i>Gada (Mace)</h5>
+                                    <p class="small">Represents strength and righteousness</p>
+                                </div>
+                                <div class="mb-3">
+                                    <h5><i class="fas fa-circle-notch me-2 text-warning"></i>Cakra (Disc)</h5>
+                                    <p class="small">The wheel of time and cosmic order</p>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-bullhorn me-2 text-warning"></i>Sankha (Conch)</h5>
+                                    <p class="small">The sound of victory and divine call</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-building me-2"></i>
+                        <strong>Recognition:</strong> A brick with your name will be placed in temple hall where daily congregational activities take place.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Divine Padma</h3>
+                            <div class="tier-amount">₹5 Lakh</div>
+                            <p class="tier-benefit">Lotus of divine service</p>
+                            <button class="btn donation-btn">Join Divine</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Divine Gada</h3>
+                            <div class="tier-amount">₹3 Lakh</div>
+                            <p class="tier-benefit">Mace of strength</p>
+                            <button class="btn donation-btn">Join Divine</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Divine Cakra</h3>
+                            <div class="tier-amount">₹2 Lakh</div>
+                            <p class="tier-benefit">Wheel of dharma</p>
+                            <button class="btn donation-btn">Join Divine</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="divine-card fade-in">
+                        <div class="membership-tier">
+                            <h3 class="tier-title">Divine Sankha</h3>
+                            <div class="tier-amount">₹1 Lakh</div>
+                            <p class="tier-benefit">Conch of victory</p>
+                            <button class="btn donation-btn">Join Divine</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Srila Prabhupada Sevak Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center fade-in">
+                    <h2 class="section-title">Srila Prabhupada Sevak</h2>
+                    <p class="lead text-muted mb-4">Serve in the Footsteps of Our Founder Acharya</p>
+                    <div class="row align-items-center">
+                        <div class="col-md-4">
+                            <img src="https://images.unsplash.com/photo-1613905284699-5e44f8c3ec44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Construction Site" class="img-fluid rounded-3 shadow mb-3">
+                        </div>
+                        <div class="col-md-8 text-start">
+                            <p>Every square foot you sponsor directly contributes to the physical construction of Abhay Tirtha. This tier allows devotees of all economic backgrounds to participate in this sacred project, following the inclusive vision of Srila Prabhupada.</p>
+                            <p>Your contribution, whether small or large, carries equal spiritual merit. As Srila Prabhupada taught, it is the devotion behind the offering that matters most to Krishna, not the material value.</p>
+                            <div class="alert alert-success" role="alert">
+                                <i class="fas fa-tools me-2"></i>
+                                <strong>Special Recognition:</strong> Devotees offering 2 sq. ft. or more will have their name engraved on a brick placed in the project construction.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>½ Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹5,500</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>1 Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹11,000</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>2 Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹22,000</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>3 Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹33,000</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>4 Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹44,000</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-3">
+                    <div class="divine-card text-center fade-in">
+                        <h5>5 Sq. Ft.</h5>
+                        <div class="tier-amount" style="font-size: 1.5rem;">₹55,000</div>
+                        <button class="btn donation-btn btn-sm">Donate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Impact Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Vision & Impact</h2>
+            <div class="row">
+                <div class="col-lg-4 fade-in">
+                    <div class="divine-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1599582909646-c22f5ed09fdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Spiritual Education" class="img-fluid rounded mb-3" style="height: 200px; object-fit: cover; width: 100%;">
+                        <h4 class="tier-title">Spiritual Education</h4>
+                        <p>Comprehensive programs in Bhagavad Gita, Srimad Bhagavatam, and Krishna consciousness philosophy for all age groups.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-in">
+                    <div class="divine-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Community Service" class="img-fluid rounded mb-3" style="height: 200px; object-fit: cover; width: 100%;">
+                        <h4 class="tier-title">Community Welfare</h4>
+                        <p>Food distribution, healthcare support, educational scholarships, and disaster relief services for the underprivileged.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 fade-in">
+                    <div class="divine-card text-center h-100">
+                        <img src="https://images.unsplash.com/photo-1538390977804-0ad5ac882d9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Cultural Programs" class="img-fluid rounded mb-3" style="height: 200px; object-fit: cover; width: 100%;">
+                        <h4 class="tier-title">Cultural Heritage</h4>
+                        <p>Festivals, classical music, dance performances, and art exhibitions celebrating India's rich spiritual culture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Banking Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Donation Details</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="bank-details fade-in">
+                        <h4><i class="fas fa-university me-2"></i>Banking Information</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Account Name:</strong> ISKCON</p>
+                                <p><strong>Bank Name:</strong> RBL Bank</p>
+                                <p><strong>Account Number:</strong> 309007220511</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>IFSC Code:</strong> RATN0000167</p>
+                                <p><strong>Branch:</strong> The Ratnakar Bank Ltd</p>
+                                <p><strong>Address:</strong> JL Nehru Road Kolkata</p>
+                            </div>
+                        </div>
+                        <p class="mt-3"><em>All Cheques/DD in name of 'ISKCON' are also accepted.</em></p>
+                    </div>
+                    
+                    <div class="upi-section fade-in">
+                        <h4><i class="fab fa-google-pay me-2"></i>UPI Payment</h4>
+                        <p class="mb-0"><strong>UPI ID:</strong> iskconnewtown@icici</p>
+                    </div>
+                    
+                    <div class="contact-card fade-in">
+                        <h4><i class="fas fa-phone me-2"></i>Contact Information</h4>
+                        <p><strong>Phone:</strong> 62893 03063</p>
+                        <p class="text-muted">For any queries regarding donations and memberships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-2">International Society for Krishna Consciousness</p>
+            <p class="mb-2">Founder Acharya His Divine Grace A.C. Bhaktivedanta Swami Prabhupada</p>
+            <p class="mb-0 text-muted">Abhay Tirtha - A Project of ISKCON Newtown Kolkata</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
