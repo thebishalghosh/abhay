@@ -879,89 +879,47 @@
         }
         
         .footer-main {
-            padding: 40px 20px;
+            background: #1e3a8a;
+            padding: 30px 20px;
         }
         
-        .footer-container {
+        .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 40px;
-            align-items: flex-start;
-        }
-        
-        .footer-logo-column {
             text-align: center;
         }
         
-        .footer-address-column {
-            text-align: center;
-        }
-        
-        .footer-contact-column {
-            text-align: center;
-        }
-        
-        .footer-logo {
-            text-align: center;
-        }
-        
-        .footer-logo-image {
-            width: 120px;
-            height: 120px;
-            object-fit: contain;
-            margin-bottom: 20px;
-        }
-        
-        .footer-address-column h4,
-        .footer-contact-column h4 {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .footer-content p {
             color: white;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-        
-        .footer-address-column p,
-        .footer-contact-column p {
-            font-size: 1rem;
-            color: white;
+            font-size: 1.1rem;
             line-height: 1.6;
-            margin: 10px 0;
-            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .footer-bottom {
+            background: #1e3a8a;
+            padding: 20px;
+            text-align: center;
+            border-top: 8px solid #ffd700;
+        }
+        
+        .footer-bottom p {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 600;
         }
         
         /* Footer Responsive */
         @media (max-width: 768px) {
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
+            .footer-content p {
+                font-size: 1rem;
             }
             
-            .footer-logo-column,
-            .footer-address-column,
-            .footer-contact-column {
-                align-items: center;
+            .footer-main,
+            .footer-bottom {
+                padding: 20px 15px;
             }
-            
-            .footer-main {
-                padding: 30px 20px;
-            }
-        }
-
-        .footer-bottom {
-            background: #ffd700;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .footer-bottom p {
-            color: #1e3a8a;
-            font-size: 1rem;
-            margin: 0;
-            font-weight: 600;
         }
     </style>
 </head>
@@ -1188,27 +1146,12 @@
     <footer class="footer">
         <div class="footer-top-border"></div>
         <div class="footer-main">
-            <div class="footer-container">
-                <div class="footer-logo-column">
-                    <div class="footer-logo">
-                        <img src="IN.png" alt="ISKCON Newtown Logo" class="footer-logo-image">
-                    </div>
-                </div>
-                <div class="footer-address-column">
-                    <h4>ISKCON New Town</h4>
-                    <p>Shapoorji Bus Terminus,</p>
-                    <p>Ekajul, Action Area III,</p>
-                    <p>Newtown, Kolkata, West Bengal 700135</p>
-                </div>
-                <div class="footer-contact-column">
-                    <h4>Contact</h4>
-                    <p>Email: info@iskconnewtown.com</p>
-                    <p>Phone: +91-9903392500</p>
-                </div>
+            <div class="footer-content">
+                <p>ISKCON Newtown: Shapoorji Bus Terminus, Ekajul, Action Area III, Newtown, Kolkata, West Bengal 700135 | Contact: 62893 03063</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Copyright 2025 – ISKCON New Town. All Rights Reserved</p>
+            <p>Copyright 2024 - ISKCON Newtown. All Rights Reserved</p>
         </div>
     </footer>
 </body>
